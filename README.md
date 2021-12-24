@@ -13,12 +13,16 @@ multi thread file downloader/多线程文件下载器
 ~~~shell
 python setup.py install
 ~~~
+or
+~~~shell
+pip install file_mt_downloader
+~~~
 
 ## how to use
 ### 1、Command Line
 * 从URL下载到本地wechat.exe
 ~~~shell
-python -m filedownloader "https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe" "wechat.exe"
+python -m file_mt_downloader "https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe" "wechat.exe"
 ~~~
 
 * 断点续传
@@ -28,13 +32,13 @@ python -m filedownloader "https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe" 
 
 通过break point file记录成功下载的数据段
 ~~~shell
-python -m filedownloader "target url" "save file" -bf "break point file"
+python -m file_mt_downloader "target url" "save file" -bf "break point file"
 ~~~
 2、从断开开始下载
 
 从 break point file 读取历史下载段 计算缺失段接续下载
 ~~~shell
-python -m filedownloader "target url" "save file" -bf 'break point file' -b
+python -m file_mt_downloader "target url" "save file" -bf 'break point file' -b
 ~~~
 
 ### more parameters
@@ -73,7 +77,7 @@ optional arguments:
 ### 2、Python Script
 ~~~python
 import requests
-from filedownloader import file_downloader
+from file_mt_downloader import file_downloader
 
 target_url = 'https://xxxx.xxx/xxx.exe'
 save_path = 'xxx.exe'
